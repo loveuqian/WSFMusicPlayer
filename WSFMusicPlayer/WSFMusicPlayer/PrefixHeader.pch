@@ -9,7 +9,14 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
-// Include any system framework and library headers here that should be included in all compilation units.
-// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#endif
+
+#define xiaoxingyun @"http://sc1.111ttt.com/2015/3/11/28/104281920346.mp3"
+#define ifyou @"http://sc1.111ttt.com/2015/1/12/24/105241801375.mp3"
+#define zouzailengfengzhong @"http://sc1.111ttt.com/2015/1/06/09/99092220246.mp3"
+#define buweishuierzuodege @"http://sc1.111ttt.com/2015/1/12/24/105241804268.mp3"
 
 #endif /* PrefixHeader_pch */
