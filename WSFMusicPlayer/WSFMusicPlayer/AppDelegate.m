@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "WSFMusicPlayerViewController.h"
 
 @interface AppDelegate ()
 
@@ -25,7 +26,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window.rootViewController = [[UITableViewController alloc] init];
+    self.window.rootViewController = [[WSFMusicPlayerViewController alloc] init];
     return YES;
 }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37436C681C2BE96300266127 /* WSFMusicPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37436C661C2BE96300266127 /* WSFMusicPlayerViewController.m */; };
+		37436C691C2BE96300266127 /* WSFMusicPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37436C671C2BE96300266127 /* WSFMusicPlayerViewController.xib */; };
 		37FAE2661C2BCD71007C86C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37FAE2651C2BCD71007C86C7 /* main.m */; };
 		37FAE2691C2BCD71007C86C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37FAE2681C2BCD71007C86C7 /* AppDelegate.m */; };
 		37FAE2711C2BCD71007C86C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37FAE2701C2BCD71007C86C7 /* Assets.xcassets */; };
@@ -14,6 +16,9 @@
 
 /* Begin PBXFileReference section */
 		37436C641C2BE92500266127 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		37436C651C2BE96300266127 /* WSFMusicPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSFMusicPlayerViewController.h; sourceTree = "<group>"; };
+		37436C661C2BE96300266127 /* WSFMusicPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSFMusicPlayerViewController.m; sourceTree = "<group>"; };
+		37436C671C2BE96300266127 /* WSFMusicPlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WSFMusicPlayerViewController.xib; sourceTree = "<group>"; };
 		37FAE2611C2BCD71007C86C7 /* WSFMusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WSFMusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37FAE2651C2BCD71007C86C7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		37FAE2671C2BCD71007C86C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -54,6 +59,9 @@
 			children = (
 				37FAE2671C2BCD71007C86C7 /* AppDelegate.h */,
 				37FAE2681C2BCD71007C86C7 /* AppDelegate.m */,
+				37436C651C2BE96300266127 /* WSFMusicPlayerViewController.h */,
+				37436C661C2BE96300266127 /* WSFMusicPlayerViewController.m */,
+				37436C671C2BE96300266127 /* WSFMusicPlayerViewController.xib */,
 				37FAE2701C2BCD71007C86C7 /* Assets.xcassets */,
 				37FAE2751C2BCD71007C86C7 /* Info.plist */,
 				37436C641C2BE92500266127 /* PrefixHeader.pch */,
@@ -127,6 +135,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37436C691C2BE96300266127 /* WSFMusicPlayerViewController.xib in Resources */,
 				37FAE2711C2BCD71007C86C7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37436C681C2BE96300266127 /* WSFMusicPlayerViewController.m in Sources */,
 				37FAE2691C2BCD71007C86C7 /* AppDelegate.m in Sources */,
 				37FAE2661C2BCD71007C86C7 /* main.m in Sources */,
 			);
