@@ -7,6 +7,10 @@
 //
 
 #import "WSFMusicPlayerViewController.h"
+#import "WSFTrack.h"
+#import "WSFTrack+Extension.h"
+#import "DOUAudioStreamer.h"
+#import "DOUAudioVisualizer.h"
 
 @interface WSFMusicPlayerViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -15,20 +19,24 @@
 @property (weak, nonatomic) IBOutlet UIButton *previousButton;
 @property (weak, nonatomic) IBOutlet UISlider *progressSlider;
 @property (weak, nonatomic) IBOutlet UIImageView *albumImageView;
-
 @property (weak, nonatomic) IBOutlet UITableView *musicListTableView;
-@property (nonatomic, strong) NSArray *musicUrlArr;
+@property (weak, nonatomic) IBOutlet DOUAudioVisualizer *audioVisualizerView;
+
+@property (nonatomic, strong) DOUAudioStreamer *streamer;
+@property (nonatomic, assign) NSInteger currentTrackIndex;
+
+@property (nonatomic, strong) NSArray *tracksArr;
 
 @end
 
 @implementation WSFMusicPlayerViewController
 
-- (NSArray *)musicUrlArr
+- (NSArray *)tracksArr
 {
-    if (!_musicUrlArr) {
-        _musicUrlArr = @[ xiaoxingyun, ifyou, zouzailengfengzhong, buweishuierzuodege ];
+    if (!_tracksArr) {
+        _tracksArr = [WSFTrack tracksArr];
     }
-    return _musicUrlArr;
+    return _tracksArr;
 }
 
 - (void)viewDidLoad
@@ -37,54 +45,104 @@
 
     self.musicListTableView.delegate = self;
     self.musicListTableView.dataSource = self;
+    self.musicListTableView.tableFooterView = [[UIView alloc] init];
 }
 
+#pragma mark streamer
+- (void)cancelStreamer
+{
+    if (self.streamer != nil) {
+        [self.streamer pause];
+        //        [self.streamer removeObserver:self forKeyPath:@"status"];
+        //        [self.streamer removeObserver:self forKeyPath:@"duration"];
+        //        [self.streamer removeObserver:self forKeyPath:@"bufferingRatio"];
+        self.streamer = nil;
+    }
+}
+
+- (void)resetStreamer
+{
+    [self cancelStreamer];
+
+    WSFTrack *track = [self.tracksArr objectAtIndex:self.currentTrackIndex];
+    self.streamer = [DOUAudioStreamer streamerWithAudioFile:track];
+    [self.streamer play];
+    NSLog(@"第 %zd 首", self.currentTrackIndex);
+
+    [self setupHintForStreamer];
+}
+
+- (void)setupHintForStreamer
+{
+    NSInteger nextIndex = _currentTrackIndex + 1;
+    if (nextIndex >= [self.tracksArr count]) {
+        nextIndex = 0;
+    }
+
+    [DOUAudioStreamer setHintWithAudioFile:[self.tracksArr objectAtIndex:nextIndex]];
+}
+
+#pragma mark 按钮点击
 - (IBAction)playBtnClick:(UIButton *)sender
 {
-    //
+    if (self.streamer) {
+        if ([self.streamer status] == DOUAudioStreamerPaused || [self.streamer status] == DOUAudioStreamerIdle) {
+            [self.streamer play];
+            [self.playButton setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
+        }
+        else {
+            [self.streamer pause];
+            [self.playButton setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
+        }
+    }
+
+    if (!self.streamer) {
+        [self resetStreamer];
+        [self.playButton setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
+    }
 }
 
 - (IBAction)nextBtnClick
 {
-    //
+    if (++self.currentTrackIndex >= [self.tracksArr count]) {
+        self.currentTrackIndex = 0;
+    }
+
+    [self resetStreamer];
 }
 
 - (IBAction)previousBtnClick
 {
-    //
+    if (--self.currentTrackIndex <= 0) {
+        self.currentTrackIndex = [self.tracksArr count] - 1;
+    }
+
+    [self resetStreamer];
 }
 
-#pragma mark tableView
+#pragma mark 音乐列表
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return self.tracksArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
 
-    if (0 == indexPath.row) {
-        cell.textLabel.text = @"小幸运";
-        cell.detailTextLabel.text = @"田馥甄";
-    }
-
-    if (1 == indexPath.row) {
-        cell.textLabel.text = @"if you";
-        cell.detailTextLabel.text = @"big bang";
-    }
-
-    if (2 == indexPath.row) {
-        cell.textLabel.text = @"走在冷风中";
-        cell.detailTextLabel.text = @"周二珂";
-    }
-
-    if (3 == indexPath.row) {
-        cell.textLabel.text = @"不为谁而作的歌";
-        cell.detailTextLabel.text = @"林俊杰";
-    }
+    WSFTrack *track = self.tracksArr[indexPath.row];
+    cell.textLabel.text = track.title;
+    cell.detailTextLabel.text = track.artist;
 
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    self.currentTrackIndex = indexPath.row;
+    [self resetStreamer];
 }
 
 @end

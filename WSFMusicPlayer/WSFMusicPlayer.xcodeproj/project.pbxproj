@@ -27,6 +27,8 @@
 		37436CA21C2BEBFB00266127 /* DOUMPMediaLibraryAssetLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 37436C8E1C2BEBFB00266127 /* DOUMPMediaLibraryAssetLoader.m */; };
 		37436CA31C2BEBFB00266127 /* DOUSimpleHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37436C901C2BEBFB00266127 /* DOUSimpleHTTPRequest.m */; };
 		37436CA41C2BEBFB00266127 /* NSData+DOUMappedFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 37436C921C2BEBFB00266127 /* NSData+DOUMappedFile.m */; };
+		379CC80C1C2CEC2C00F53BC0 /* WSFTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 379CC80B1C2CEC2C00F53BC0 /* WSFTrack.m */; };
+		379D20BA1C2D106B009813A6 /* WSFTrack+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 379D20B91C2D106B009813A6 /* WSFTrack+Extension.m */; };
 		37FAE2661C2BCD71007C86C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37FAE2651C2BCD71007C86C7 /* main.m */; };
 		37FAE2691C2BCD71007C86C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37FAE2681C2BCD71007C86C7 /* AppDelegate.m */; };
 		37FAE2711C2BCD71007C86C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37FAE2701C2BCD71007C86C7 /* Assets.xcassets */; };
@@ -77,6 +79,10 @@
 		37436C901C2BEBFB00266127 /* DOUSimpleHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUSimpleHTTPRequest.m; sourceTree = "<group>"; };
 		37436C911C2BEBFB00266127 /* NSData+DOUMappedFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+DOUMappedFile.h"; sourceTree = "<group>"; };
 		37436C921C2BEBFB00266127 /* NSData+DOUMappedFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+DOUMappedFile.m"; sourceTree = "<group>"; };
+		379CC80A1C2CEC2C00F53BC0 /* WSFTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSFTrack.h; sourceTree = "<group>"; };
+		379CC80B1C2CEC2C00F53BC0 /* WSFTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSFTrack.m; sourceTree = "<group>"; };
+		379D20B81C2D106B009813A6 /* WSFTrack+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WSFTrack+Extension.h"; sourceTree = "<group>"; };
+		379D20B91C2D106B009813A6 /* WSFTrack+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WSFTrack+Extension.m"; sourceTree = "<group>"; };
 		37FAE2611C2BCD71007C86C7 /* WSFMusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WSFMusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37FAE2651C2BCD71007C86C7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		37FAE2671C2BCD71007C86C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -168,6 +174,10 @@
 				37436C651C2BE96300266127 /* WSFMusicPlayerViewController.h */,
 				37436C661C2BE96300266127 /* WSFMusicPlayerViewController.m */,
 				37436C671C2BE96300266127 /* WSFMusicPlayerViewController.xib */,
+				379CC80A1C2CEC2C00F53BC0 /* WSFTrack.h */,
+				379CC80B1C2CEC2C00F53BC0 /* WSFTrack.m */,
+				379D20B81C2D106B009813A6 /* WSFTrack+Extension.h */,
+				379D20B91C2D106B009813A6 /* WSFTrack+Extension.m */,
 				37FAE2701C2BCD71007C86C7 /* Assets.xcassets */,
 				37FAE2751C2BCD71007C86C7 /* Info.plist */,
 				37436C641C2BE92500266127 /* PrefixHeader.pch */,
@@ -259,6 +269,7 @@
 				37436C681C2BE96300266127 /* WSFMusicPlayerViewController.m in Sources */,
 				37436C941C2BEBFB00266127 /* DOUAudioAnalyzer.m in Sources */,
 				37436C981C2BEBFB00266127 /* DOUAudioFileProvider.m in Sources */,
+				379CC80C1C2CEC2C00F53BC0 /* WSFTrack.m in Sources */,
 				37436C9A1C2BEBFB00266127 /* DOUAudioLPCM.m in Sources */,
 				37436C9C1C2BEBFB00266127 /* DOUAudioRenderer.m in Sources */,
 				37436C9B1C2BEBFB00266127 /* DOUAudioPlaybackItem.m in Sources */,
@@ -269,6 +280,7 @@
 				37FAE2691C2BCD71007C86C7 /* AppDelegate.m in Sources */,
 				37436C9E1C2BEBFB00266127 /* DOUAudioStreamer+Options.m in Sources */,
 				37436C961C2BEBFB00266127 /* DOUAudioEventLoop.m in Sources */,
+				379D20BA1C2D106B009813A6 /* WSFTrack+Extension.m in Sources */,
 				37436CA31C2BEBFB00266127 /* DOUSimpleHTTPRequest.m in Sources */,
 				37436C971C2BEBFB00266127 /* DOUAudioFilePreprocessor.m in Sources */,
 				37436CA41C2BEBFB00266127 /* NSData+DOUMappedFile.m in Sources */,

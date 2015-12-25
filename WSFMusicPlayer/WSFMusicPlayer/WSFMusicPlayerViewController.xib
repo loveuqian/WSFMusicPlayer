@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WSFMusicPlayerViewController">
             <connections>
                 <outlet property="albumImageView" destination="PtM-Sc-g5x" id="j1G-0k-n5W"/>
+                <outlet property="audioVisualizerView" destination="m7d-qU-3Rc" id="BpO-s4-4Fb"/>
                 <outlet property="musicListTableView" destination="zca-rQ-379" id="FWc-6L-dIg"/>
                 <outlet property="nextButton" destination="PaR-xK-KQ5" id="ipA-dG-Fei"/>
                 <outlet property="playButton" destination="fAp-HK-g9M" id="cFi-ho-DjW"/>
@@ -22,21 +23,21 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvE-En-Hnm">
-                    <rect key="frame" x="107" y="310" width="48" height="48"/>
+                    <rect key="frame" x="107" y="117" width="48" height="48"/>
                     <state key="normal" backgroundImage="skip_to_start"/>
                     <connections>
                         <action selector="previousBtnClick" destination="-1" eventType="touchUpInside" id="gDN-S7-pKS"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fAp-HK-g9M">
-                    <rect key="frame" x="163" y="310" width="48" height="48"/>
+                    <rect key="frame" x="163" y="117" width="48" height="48"/>
                     <state key="normal" backgroundImage="play"/>
                     <connections>
                         <action selector="playBtnClick:" destination="-1" eventType="touchUpInside" id="gQV-ce-Qcm"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PaR-xK-KQ5">
-                    <rect key="frame" x="219" y="310" width="48" height="48"/>
+                    <rect key="frame" x="219" y="117" width="48" height="48"/>
                     <state key="normal" backgroundImage="end"/>
                     <connections>
                         <action selector="nextBtnClick" destination="-1" eventType="touchUpInside" id="UbJ-Gc-LyP"/>
@@ -47,13 +48,17 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vAI-hD-Y8S">
-                    <rect key="frame" x="6" y="272" width="363" height="31"/>
+                    <rect key="frame" x="6" y="79" width="363" height="31"/>
                 </slider>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="music_record" translatesAutoresizingMaskIntoConstraints="NO" id="PtM-Sc-g5x">
-                    <rect key="frame" x="163" y="216" width="48" height="48"/>
+                    <rect key="frame" x="163" y="23" width="48" height="48"/>
                 </imageView>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m7d-qU-3Rc" customClass="DOUAudioVisualizer">
+                    <rect key="frame" x="0.0" y="258" width="375" height="151"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
-            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="377.5" y="403.5"/>
         </view>
