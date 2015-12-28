@@ -14,6 +14,8 @@
 #import <UIKit/UIKit.h>
 #endif
 
+#import <AVOSCloud/AVOSCloud.h>
+
 #define xiaoxingyun @"http://sc1.111ttt.com/2015/3/11/28/104281920346.mp3"
 #define ifyou @"http://sc1.111ttt.com/2015/1/12/24/105241801375.mp3"
 #define zouzailengfengzhong @"http://sc1.111ttt.com/2015/1/06/09/99092220246.mp3"

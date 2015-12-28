@@ -10,15 +10,25 @@
 
 @implementation WSFTrack
 
-+ (instancetype)trackWithArtist:(NSString *)artist title:(NSString *)title audioFileURL:(NSString *)audioFileURL
++ (instancetype)trackWithAVObject:(AVObject *)object
 {
     WSFTrack *track = [[WSFTrack alloc] init];
 
-    track.artist = artist;
-    track.title = title;
-    track.audioFileURL = [NSURL URLWithString:audioFileURL];
+    track.artist = [object objectForKey:@"artist"];
+    track.title = [object objectForKey:@"title"];
+    track.audioFileURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [object objectForKey:@"audioFileURL"]]];
 
     return track;
+}
+
++ (NSArray *)tracksArrWithAVObjectsArr:(NSArray *)arr
+{
+    NSMutableArray *mArr = [NSMutableArray array];
+    for (AVObject *object in arr) {
+        WSFTrack *track = [WSFTrack trackWithAVObject:object];
+        [mArr addObject:track];
+    }
+    return mArr;
 }
 
 @end

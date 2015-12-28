@@ -15,6 +15,7 @@
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSURL *audioFileURL;
 
-+ (instancetype)trackWithArtist:(NSString *)artist title:(NSString *)title audioFileURL:(NSString *)audioFileURL;
++ (instancetype)trackWithAVObject:(AVObject *)object;
++ (NSArray *)tracksArrWithAVObjectsArr:(NSArray *)arr;
 
 @end

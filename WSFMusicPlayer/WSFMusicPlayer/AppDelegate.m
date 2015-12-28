@@ -9,8 +9,6 @@
 #import "AppDelegate.h"
 #import "WSFMusicPlayerViewController.h"
 
-#import <AVOSCloud/AVOSCloud.h>
-
 @interface AppDelegate ()
 
 @end

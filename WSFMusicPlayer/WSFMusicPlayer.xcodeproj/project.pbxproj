@@ -28,7 +28,6 @@
 		37436CA31C2BEBFB00266127 /* DOUSimpleHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37436C901C2BEBFB00266127 /* DOUSimpleHTTPRequest.m */; };
 		37436CA41C2BEBFB00266127 /* NSData+DOUMappedFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 37436C921C2BEBFB00266127 /* NSData+DOUMappedFile.m */; };
 		379CC80C1C2CEC2C00F53BC0 /* WSFTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 379CC80B1C2CEC2C00F53BC0 /* WSFTrack.m */; };
-		379D20BA1C2D106B009813A6 /* WSFTrack+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 379D20B91C2D106B009813A6 /* WSFTrack+Extension.m */; };
 		37AAD9191C30E14C0012AD7C /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AAD9181C30E14C0012AD7C /* AVOSCloud.framework */; };
 		37AAD91E1C30E2460012AD7C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AAD91D1C30E2460012AD7C /* SystemConfiguration.framework */; };
 		37AAD9201C30E24A0012AD7C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AAD91F1C30E24A0012AD7C /* MobileCoreServices.framework */; };
@@ -86,8 +85,6 @@
 		37436C921C2BEBFB00266127 /* NSData+DOUMappedFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+DOUMappedFile.m"; sourceTree = "<group>"; };
 		379CC80A1C2CEC2C00F53BC0 /* WSFTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSFTrack.h; sourceTree = "<group>"; };
 		379CC80B1C2CEC2C00F53BC0 /* WSFTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSFTrack.m; sourceTree = "<group>"; };
-		379D20B81C2D106B009813A6 /* WSFTrack+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WSFTrack+Extension.h"; sourceTree = "<group>"; };
-		379D20B91C2D106B009813A6 /* WSFTrack+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WSFTrack+Extension.m"; sourceTree = "<group>"; };
 		37AAD9181C30E14C0012AD7C /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloud.framework; sourceTree = "<group>"; };
 		37AAD91D1C30E2460012AD7C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		37AAD91F1C30E24A0012AD7C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -203,8 +200,6 @@
 				37436C671C2BE96300266127 /* WSFMusicPlayerViewController.xib */,
 				379CC80A1C2CEC2C00F53BC0 /* WSFTrack.h */,
 				379CC80B1C2CEC2C00F53BC0 /* WSFTrack.m */,
-				379D20B81C2D106B009813A6 /* WSFTrack+Extension.h */,
-				379D20B91C2D106B009813A6 /* WSFTrack+Extension.m */,
 				37FAE2701C2BCD71007C86C7 /* Assets.xcassets */,
 				37FAE2751C2BCD71007C86C7 /* Info.plist */,
 				37436C641C2BE92500266127 /* PrefixHeader.pch */,
@@ -308,7 +303,6 @@
 				37FAE2691C2BCD71007C86C7 /* AppDelegate.m in Sources */,
 				37436C9E1C2BEBFB00266127 /* DOUAudioStreamer+Options.m in Sources */,
 				37436C961C2BEBFB00266127 /* DOUAudioEventLoop.m in Sources */,
-				379D20BA1C2D106B009813A6 /* WSFTrack+Extension.m in Sources */,
 				37436CA31C2BEBFB00266127 /* DOUSimpleHTTPRequest.m in Sources */,
 				37436C971C2BEBFB00266127 /* DOUAudioFilePreprocessor.m in Sources */,
 				37436CA41C2BEBFB00266127 /* NSData+DOUMappedFile.m in Sources */,

@@ -8,7 +8,6 @@
 
 #import "WSFMusicPlayerViewController.h"
 #import "WSFTrack.h"
-#import "WSFTrack+Extension.h"
 #import "DOUAudioStreamer.h"
 #import "DOUAudioVisualizer.h"
 
@@ -34,7 +33,11 @@
 - (NSArray *)tracksArr
 {
     if (!_tracksArr) {
-        _tracksArr = [WSFTrack tracksArr];
+        AVQuery *query = [AVQuery queryWithClassName:@"WSFTrack"];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            _tracksArr = [WSFTrack tracksArrWithAVObjectsArr:objects];
+            [self.musicListTableView reloadData];
+        }];
     }
     return _tracksArr;
 }
