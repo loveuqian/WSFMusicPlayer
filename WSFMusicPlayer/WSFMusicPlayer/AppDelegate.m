@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "WSFMusicPlayerViewController.h"
 
+#import <AVOSCloud/AVOSCloud.h>
+
 @interface AppDelegate ()
 
 @end
@@ -26,7 +28,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [AVOSCloud setApplicationId:@"eUvDhaj2cLksve0tKgAVAx1O-gzGzoHsz" clientKey:@"xKUaQv5WpUS1EhqVYEH4ViEt"];
+
     self.window.rootViewController = [[WSFMusicPlayerViewController alloc] init];
+
     return YES;
 }
 

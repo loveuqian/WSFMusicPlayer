@@ -29,6 +29,11 @@
 		37436CA41C2BEBFB00266127 /* NSData+DOUMappedFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 37436C921C2BEBFB00266127 /* NSData+DOUMappedFile.m */; };
 		379CC80C1C2CEC2C00F53BC0 /* WSFTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 379CC80B1C2CEC2C00F53BC0 /* WSFTrack.m */; };
 		379D20BA1C2D106B009813A6 /* WSFTrack+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 379D20B91C2D106B009813A6 /* WSFTrack+Extension.m */; };
+		37AAD9191C30E14C0012AD7C /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AAD9181C30E14C0012AD7C /* AVOSCloud.framework */; };
+		37AAD91E1C30E2460012AD7C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AAD91D1C30E2460012AD7C /* SystemConfiguration.framework */; };
+		37AAD9201C30E24A0012AD7C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AAD91F1C30E24A0012AD7C /* MobileCoreServices.framework */; };
+		37AAD9221C30E24E0012AD7C /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AAD9211C30E24E0012AD7C /* CoreTelephony.framework */; };
+		37AAD9241C30E2530012AD7C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AAD9231C30E2530012AD7C /* CoreLocation.framework */; };
 		37FAE2661C2BCD71007C86C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37FAE2651C2BCD71007C86C7 /* main.m */; };
 		37FAE2691C2BCD71007C86C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37FAE2681C2BCD71007C86C7 /* AppDelegate.m */; };
 		37FAE2711C2BCD71007C86C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37FAE2701C2BCD71007C86C7 /* Assets.xcassets */; };
@@ -83,6 +88,11 @@
 		379CC80B1C2CEC2C00F53BC0 /* WSFTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSFTrack.m; sourceTree = "<group>"; };
 		379D20B81C2D106B009813A6 /* WSFTrack+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WSFTrack+Extension.h"; sourceTree = "<group>"; };
 		379D20B91C2D106B009813A6 /* WSFTrack+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WSFTrack+Extension.m"; sourceTree = "<group>"; };
+		37AAD9181C30E14C0012AD7C /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloud.framework; sourceTree = "<group>"; };
+		37AAD91D1C30E2460012AD7C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		37AAD91F1C30E24A0012AD7C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		37AAD9211C30E24E0012AD7C /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		37AAD9231C30E2530012AD7C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		37FAE2611C2BCD71007C86C7 /* WSFMusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WSFMusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37FAE2651C2BCD71007C86C7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		37FAE2671C2BCD71007C86C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -96,6 +106,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37AAD9241C30E2530012AD7C /* CoreLocation.framework in Frameworks */,
+				37AAD9221C30E24E0012AD7C /* CoreTelephony.framework in Frameworks */,
+				37AAD9201C30E24A0012AD7C /* MobileCoreServices.framework in Frameworks */,
+				37AAD91E1C30E2460012AD7C /* SystemConfiguration.framework in Frameworks */,
+				37AAD9191C30E14C0012AD7C /* AVOSCloud.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +164,18 @@
 			path = DOUAudioStreamer;
 			sourceTree = "<group>";
 		};
+		37AAD9171C30E13F0012AD7C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				37AAD9231C30E2530012AD7C /* CoreLocation.framework */,
+				37AAD9211C30E24E0012AD7C /* CoreTelephony.framework */,
+				37AAD91F1C30E24A0012AD7C /* MobileCoreServices.framework */,
+				37AAD91D1C30E2460012AD7C /* SystemConfiguration.framework */,
+				37AAD9181C30E14C0012AD7C /* AVOSCloud.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 		37FAE2581C2BCD71007C86C7 = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +209,7 @@
 				37FAE2751C2BCD71007C86C7 /* Info.plist */,
 				37436C641C2BE92500266127 /* PrefixHeader.pch */,
 				37FAE2641C2BCD71007C86C7 /* Supporting Files */,
+				37AAD9171C30E13F0012AD7C /* Frameworks */,
 			);
 			path = WSFMusicPlayer;
 			sourceTree = "<group>";
@@ -377,9 +405,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WSFMusicPlayer/Frameworks",
+				);
 				GCC_PREFIX_HEADER = WSFMusicPlayer/PrefixHeader.pch;
 				INFOPLIST_FILE = WSFMusicPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-licucore",
+					"-lz",
+					"-lsqlite3",
+					"-lc++",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = top.loveuqian.WSFMusicPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -390,9 +429,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WSFMusicPlayer/Frameworks",
+				);
 				GCC_PREFIX_HEADER = WSFMusicPlayer/PrefixHeader.pch;
 				INFOPLIST_FILE = WSFMusicPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-licucore",
+					"-lz",
+					"-lsqlite3",
+					"-lc++",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = top.loveuqian.WSFMusicPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
