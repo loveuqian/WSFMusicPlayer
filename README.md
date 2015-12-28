@@ -5,4 +5,4 @@
 
 当前效果图
 
-![](http://i4.tietuku.com/b1712c7f716fdee9.png)
+![](http://ac-euvdhaj2.clouddn.com/21bcf3520283293b.png)
