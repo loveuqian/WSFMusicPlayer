@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "WSFMusicPlayerViewController.h"
+#import "WSFMusicListViewController.h"
 
 @interface AppDelegate ()
 
@@ -28,7 +28,9 @@
 {
     [AVOSCloud setApplicationId:@"eUvDhaj2cLksve0tKgAVAx1O-gzGzoHsz" clientKey:@"xKUaQv5WpUS1EhqVYEH4ViEt"];
 
-    self.window.rootViewController = [[WSFMusicPlayerViewController alloc] init];
+    WSFMusicListViewController *listVC = [[WSFMusicListViewController alloc] init];
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:listVC];
+    self.window.rootViewController = navVC;
 
     return YES;
 }

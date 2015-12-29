@@ -33,6 +33,7 @@
 		37AAD9201C30E24A0012AD7C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AAD91F1C30E24A0012AD7C /* MobileCoreServices.framework */; };
 		37AAD9221C30E24E0012AD7C /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AAD9211C30E24E0012AD7C /* CoreTelephony.framework */; };
 		37AAD9241C30E2530012AD7C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AAD9231C30E2530012AD7C /* CoreLocation.framework */; };
+		37AAD9271C3220CC0012AD7C /* WSFMusicListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AAD9261C3220CC0012AD7C /* WSFMusicListViewController.m */; };
 		37FAE2661C2BCD71007C86C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37FAE2651C2BCD71007C86C7 /* main.m */; };
 		37FAE2691C2BCD71007C86C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37FAE2681C2BCD71007C86C7 /* AppDelegate.m */; };
 		37FAE2711C2BCD71007C86C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37FAE2701C2BCD71007C86C7 /* Assets.xcassets */; };
@@ -90,6 +91,9 @@
 		37AAD91F1C30E24A0012AD7C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		37AAD9211C30E24E0012AD7C /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		37AAD9231C30E2530012AD7C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		37AAD9251C3220CC0012AD7C /* WSFMusicListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSFMusicListViewController.h; sourceTree = "<group>"; };
+		37AAD9261C3220CC0012AD7C /* WSFMusicListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSFMusicListViewController.m; sourceTree = "<group>"; };
+		37AAD9281C3223880012AD7C /* Singleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		37FAE2611C2BCD71007C86C7 /* WSFMusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WSFMusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37FAE2651C2BCD71007C86C7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		37FAE2671C2BCD71007C86C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -195,11 +199,14 @@
 				37436C6A1C2BEBFB00266127 /* DOUAudioStreamer */,
 				37FAE2671C2BCD71007C86C7 /* AppDelegate.h */,
 				37FAE2681C2BCD71007C86C7 /* AppDelegate.m */,
+				37AAD9251C3220CC0012AD7C /* WSFMusicListViewController.h */,
+				37AAD9261C3220CC0012AD7C /* WSFMusicListViewController.m */,
 				37436C651C2BE96300266127 /* WSFMusicPlayerViewController.h */,
 				37436C661C2BE96300266127 /* WSFMusicPlayerViewController.m */,
 				37436C671C2BE96300266127 /* WSFMusicPlayerViewController.xib */,
 				379CC80A1C2CEC2C00F53BC0 /* WSFTrack.h */,
 				379CC80B1C2CEC2C00F53BC0 /* WSFTrack.m */,
+				37AAD9281C3223880012AD7C /* Singleton.h */,
 				37FAE2701C2BCD71007C86C7 /* Assets.xcassets */,
 				37FAE2751C2BCD71007C86C7 /* Info.plist */,
 				37436C641C2BE92500266127 /* PrefixHeader.pch */,
@@ -243,6 +250,7 @@
 		37FAE2591C2BCD71007C86C7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = WSF;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = WangShengFeng;
 				TargetAttributes = {
@@ -305,6 +313,7 @@
 				37436C961C2BEBFB00266127 /* DOUAudioEventLoop.m in Sources */,
 				37436CA31C2BEBFB00266127 /* DOUSimpleHTTPRequest.m in Sources */,
 				37436C971C2BEBFB00266127 /* DOUAudioFilePreprocessor.m in Sources */,
+				37AAD9271C3220CC0012AD7C /* WSFMusicListViewController.m in Sources */,
 				37436CA41C2BEBFB00266127 /* NSData+DOUMappedFile.m in Sources */,
 				37436CA11C2BEBFB00266127 /* DOUEAGLView.m in Sources */,
 				37FAE2661C2BCD71007C86C7 /* main.m in Sources */,

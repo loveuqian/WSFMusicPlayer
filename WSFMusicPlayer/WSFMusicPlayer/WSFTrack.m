@@ -10,6 +10,16 @@
 
 @implementation WSFTrack
 
++ (NSArray *)tracksArrWithAVObjectsArr:(NSArray *)arr
+{
+    NSMutableArray *mArr = [NSMutableArray array];
+    for (AVObject *object in arr) {
+        WSFTrack *track = [WSFTrack trackWithAVObject:object];
+        [mArr addObject:track];
+    }
+    return mArr;
+}
+
 + (instancetype)trackWithAVObject:(AVObject *)object
 {
     WSFTrack *track = [[WSFTrack alloc] init];
@@ -19,16 +29,6 @@
     track.audioFileURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [object objectForKey:@"audioFileURL"]]];
 
     return track;
-}
-
-+ (NSArray *)tracksArrWithAVObjectsArr:(NSArray *)arr
-{
-    NSMutableArray *mArr = [NSMutableArray array];
-    for (AVObject *object in arr) {
-        WSFTrack *track = [WSFTrack trackWithAVObject:object];
-        [mArr addObject:track];
-    }
-    return mArr;
 }
 
 @end

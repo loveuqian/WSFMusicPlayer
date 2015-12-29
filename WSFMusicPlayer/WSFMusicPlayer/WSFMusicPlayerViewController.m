@@ -11,44 +11,38 @@
 #import "DOUAudioStreamer.h"
 #import "DOUAudioVisualizer.h"
 
-@interface WSFMusicPlayerViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface WSFMusicPlayerViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (weak, nonatomic) IBOutlet UIButton *previousButton;
 @property (weak, nonatomic) IBOutlet UISlider *progressSlider;
 @property (weak, nonatomic) IBOutlet UIImageView *albumImageView;
-@property (weak, nonatomic) IBOutlet UITableView *musicListTableView;
 @property (weak, nonatomic) IBOutlet DOUAudioVisualizer *audioVisualizerView;
 
 @property (nonatomic, strong) DOUAudioStreamer *streamer;
-@property (nonatomic, assign) NSInteger currentTrackIndex;
-
-@property (nonatomic, strong) NSArray *tracksArr;
 
 @end
 
 @implementation WSFMusicPlayerViewController
 
-- (NSArray *)tracksArr
+SingletonImplementation(WSFMusicPlayerViewController);
+
+- (void)setCurrentTrackIndex:(NSInteger)currentTrackIndex
 {
-    if (!_tracksArr) {
-        AVQuery *query = [AVQuery queryWithClassName:@"WSFTrack"];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            _tracksArr = [WSFTrack tracksArrWithAVObjectsArr:objects];
-            [self.musicListTableView reloadData];
-        }];
+    if (self.tracksArr[_currentTrackIndex] == self.tracksArr[currentTrackIndex]) {
+        return;
     }
-    return _tracksArr;
+    
+    _currentTrackIndex = currentTrackIndex;
+    [self resetStreamer];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    self.musicListTableView.delegate = self;
-    self.musicListTableView.dataSource = self;
-    self.musicListTableView.tableFooterView = [[UIView alloc] init];
+    //    [self playBtnClick:self.playButton];
 }
 
 #pragma mark streamer
@@ -123,29 +117,5 @@
     [self resetStreamer];
 }
 
-#pragma mark 音乐列表
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.tracksArr.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
-
-    WSFTrack *track = self.tracksArr[indexPath.row];
-    cell.textLabel.text = track.title;
-    cell.detailTextLabel.text = track.artist;
-
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
-    self.currentTrackIndex = indexPath.row;
-    [self resetStreamer];
-}
 
 @end
