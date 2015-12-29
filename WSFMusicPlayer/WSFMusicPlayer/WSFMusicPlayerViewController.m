@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UISlider *progressSlider;
 @property (weak, nonatomic) IBOutlet UIImageView *albumImageView;
 @property (weak, nonatomic) IBOutlet DOUAudioVisualizer *audioVisualizerView;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 
 @property (nonatomic, strong) DOUAudioStreamer *streamer;
 
@@ -30,22 +32,38 @@ SingletonImplementation(WSFMusicPlayerViewController);
 
 - (void)setCurrentTrackIndex:(NSInteger)currentTrackIndex
 {
-    if (self.tracksArr[_currentTrackIndex] == self.tracksArr[currentTrackIndex]) {
+    if (self.tracksArr[_currentTrackIndex] == self.tracksArr[currentTrackIndex] && self.streamer) {
         return;
     }
-    
+
     _currentTrackIndex = currentTrackIndex;
-    [self resetStreamer];
+
+    if ([self isViewLoaded]) {
+        [self resetStreamer];
+        [self.playButton setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
+    }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    //    [self playBtnClick:self.playButton];
+    [self resetStreamer];
+    [self.playButton setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
+    [self setupBlur];
 }
 
-#pragma mark streamer
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    CGFloat x = 100;
+    CGFloat y = 100;
+    CGFloat w = [UIScreen mainScreen].bounds.size.width - 2 * x;
+    CGFloat h = w;
+    self.iconImageView.frame = CGRectMake(x, y, w, h);
+}
+
+#pragma mark 播放器
 - (void)cancelStreamer
 {
     if (self.streamer != nil) {
@@ -66,6 +84,7 @@ SingletonImplementation(WSFMusicPlayerViewController);
     [self.streamer play];
     NSLog(@"第 %zd 首", self.currentTrackIndex);
 
+    [self setupImage:track];
     [self setupHintForStreamer];
 }
 
@@ -79,7 +98,35 @@ SingletonImplementation(WSFMusicPlayerViewController);
     [DOUAudioStreamer setHintWithAudioFile:[self.tracksArr objectAtIndex:nextIndex]];
 }
 
+#pragma mark 图片
+- (void)setupBlur
+{
+    UIToolbar *toolBar = [[UIToolbar alloc] init];
+    toolBar.barStyle = UIBarStyleBlack;
+    toolBar.frame = [UIScreen mainScreen].bounds;
+
+    [self.backgroundImageView addSubview:toolBar];
+}
+
+- (void)setupImage:(WSFTrack *)track
+{
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [session dataTaskWithURL:[NSURL URLWithString:track.imageUrlStr]
+                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                self.backgroundImageView.image = [UIImage imageWithData:data];
+                                                self.iconImageView.image = [UIImage imageWithData:data];
+                                            });
+                                        }];
+    [task resume];
+}
+
 #pragma mark 按钮点击
+- (IBAction)closeBtnClick:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (IBAction)playBtnClick:(UIButton *)sender
 {
     if (self.streamer) {
@@ -116,6 +163,5 @@ SingletonImplementation(WSFMusicPlayerViewController);
 
     [self resetStreamer];
 }
-
 
 @end

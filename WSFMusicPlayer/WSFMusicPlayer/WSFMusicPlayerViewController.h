@@ -14,7 +14,6 @@
 @interface WSFMusicPlayerViewController : UIViewController
 
 @property (nonatomic, assign) NSInteger currentTrackIndex;
-@property (nonatomic, strong) WSFTrack *track;
 @property (nonatomic, strong) NSArray *tracksArr;
 
 SingletonInterface(WSFMusicPlayerViewController);

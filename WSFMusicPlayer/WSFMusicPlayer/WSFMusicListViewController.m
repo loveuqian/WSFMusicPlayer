@@ -24,7 +24,6 @@
         AVQuery *query = [AVQuery queryWithClassName:@"WSFTrack"];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             _tracksArr = [WSFTrack tracksArrWithAVObjectsArr:objects];
-            [WSFMusicPlayerViewController shareWSFMusicPlayerViewController].tracksArr = _tracksArr;
             [self.tableView reloadData];
         }];
     }
@@ -49,6 +48,8 @@
     WSFTrack *track = self.tracksArr[indexPath.row];
     cell.textLabel.text = track.title;
     cell.detailTextLabel.text = track.artist;
+    cell.imageView.image = track.image;
+    [cell layoutSubviews];
 
     return cell;
 }
@@ -59,7 +60,8 @@
 
     WSFMusicPlayerViewController *playerVC = [WSFMusicPlayerViewController shareWSFMusicPlayerViewController];
     playerVC.currentTrackIndex = indexPath.row;
-    [self.navigationController pushViewController:playerVC animated:YES];
+    playerVC.tracksArr = self.tracksArr;
+    [self presentViewController:playerVC animated:YES completion:nil];
 }
 
 @end

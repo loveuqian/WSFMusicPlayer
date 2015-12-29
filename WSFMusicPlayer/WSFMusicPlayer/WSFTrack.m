@@ -27,6 +27,7 @@
     track.artist = [object objectForKey:@"artist"];
     track.title = [object objectForKey:@"title"];
     track.audioFileURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [object objectForKey:@"audioFileURL"]]];
+    track.imageUrlStr = [object objectForKey:@"imageURL"];
 
     return track;
 }

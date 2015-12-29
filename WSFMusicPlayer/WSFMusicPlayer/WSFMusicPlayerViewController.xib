@@ -9,6 +9,8 @@
             <connections>
                 <outlet property="albumImageView" destination="PtM-Sc-g5x" id="j1G-0k-n5W"/>
                 <outlet property="audioVisualizerView" destination="m7d-qU-3Rc" id="BpO-s4-4Fb"/>
+                <outlet property="backgroundImageView" destination="ind-ZC-h6R" id="gq7-Ea-82j"/>
+                <outlet property="iconImageView" destination="PtM-Sc-g5x" id="6LJ-JH-4F8"/>
                 <outlet property="nextButton" destination="PaR-xK-KQ5" id="ipA-dG-Fei"/>
                 <outlet property="playButton" destination="fAp-HK-g9M" id="cFi-ho-DjW"/>
                 <outlet property="previousButton" destination="dvE-En-Hnm" id="tut-qC-LOF"/>
@@ -21,8 +23,11 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ind-ZC-h6R">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m7d-qU-3Rc" customClass="DOUAudioVisualizer">
-                    <rect key="frame" x="0.0" y="413" width="375" height="254"/>
+                    <rect key="frame" x="0.0" y="505" width="375" height="162"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvE-En-Hnm">
@@ -49,11 +54,24 @@
                 <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vAI-hD-Y8S">
                     <rect key="frame" x="6" y="319" width="363" height="31"/>
                 </slider>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="music_record" translatesAutoresizingMaskIntoConstraints="NO" id="PtM-Sc-g5x">
-                    <rect key="frame" x="163" y="263" width="48" height="48"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1P-5c-rdc">
+                    <rect key="frame" x="26" y="61" width="46" height="30"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="closeBtnClick:" destination="-1" eventType="touchUpInside" id="oZG-YQ-lNa"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="music_record" translatesAutoresizingMaskIntoConstraints="NO" id="PtM-Sc-g5x">
+                    <rect key="frame" x="102" y="85" width="171" height="159"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ind-ZC-h6R" secondAttribute="bottom" id="AJp-pX-JYD"/>
+                <constraint firstItem="ind-ZC-h6R" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Iv9-yt-Kmq"/>
+                <constraint firstItem="ind-ZC-h6R" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="i7x-S1-6bW"/>
+                <constraint firstAttribute="trailing" secondItem="ind-ZC-h6R" secondAttribute="trailing" id="jHp-Lg-xac"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="377.5" y="403.5"/>
         </view>

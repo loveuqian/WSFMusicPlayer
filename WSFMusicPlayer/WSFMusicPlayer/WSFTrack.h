@@ -14,6 +14,8 @@
 @property (nonatomic, copy) NSString *artist;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSURL *audioFileURL;
+@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, copy) NSString *imageUrlStr;
 
 + (NSArray *)tracksArrWithAVObjectsArr:(NSArray *)arr;
 
