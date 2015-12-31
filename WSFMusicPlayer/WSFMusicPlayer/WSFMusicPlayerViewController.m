@@ -21,12 +21,17 @@
 @property (weak, nonatomic) IBOutlet DOUAudioVisualizer *audioVisualizerView;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (weak, nonatomic) IBOutlet UILabel *currentTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
 
 @property (nonatomic, strong) DOUAudioStreamer *streamer;
+
+@property (nonatomic, strong) NSTimer *progressTimer;
 
 @end
 
 @implementation WSFMusicPlayerViewController
+static void *kStatusKVOKey = &kStatusKVOKey;
 
 SingletonImplementation(WSFMusicPlayerViewController);
 
@@ -63,14 +68,40 @@ SingletonImplementation(WSFMusicPlayerViewController);
     self.iconImageView.frame = CGRectMake(x, y, w, h);
 }
 
+#pragma mark 定时器
+- (void)startProgressTimer
+{
+    [self updateProgress];
+    self.progressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                          target:self
+                                                        selector:@selector(updateProgress)
+                                                        userInfo:nil
+                                                         repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:self.progressTimer forMode:NSRunLoopCommonModes];
+}
+
+- (void)stopProgressTimer
+{
+    [self.progressTimer invalidate];
+    self.progressTimer = nil;
+}
+
+- (void)updateProgress
+{
+    // 改变滑块的位置
+    self.progressSlider.value = self.streamer.currentTime / self.streamer.duration;
+
+    // 设置时间的Label的文字
+    self.currentTimeLabel.text = [NSString stringWithFormat:@"%@", [self stringWithTime:self.streamer.currentTime]];
+    self.totalTimeLabel.text = [NSString stringWithFormat:@"%@", [self stringWithTime:self.streamer.duration]];
+}
+
 #pragma mark 播放器
 - (void)cancelStreamer
 {
     if (self.streamer != nil) {
         [self.streamer pause];
-        //        [self.streamer removeObserver:self forKeyPath:@"status"];
-        //        [self.streamer removeObserver:self forKeyPath:@"duration"];
-        //        [self.streamer removeObserver:self forKeyPath:@"bufferingRatio"];
+        [self.streamer removeObserver:self forKeyPath:@"status"];
         self.streamer = nil;
     }
 }
@@ -81,8 +112,10 @@ SingletonImplementation(WSFMusicPlayerViewController);
 
     WSFTrack *track = [self.tracksArr objectAtIndex:self.currentTrackIndex];
     self.streamer = [DOUAudioStreamer streamerWithAudioFile:track];
+    [self.streamer addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:kStatusKVOKey];
+
     [self.streamer play];
-    NSLog(@"第 %zd 首", self.currentTrackIndex);
+//    [self startProgressTimer];
 
     [self setupImage:track];
     [self setupHintForStreamer];
@@ -96,6 +129,44 @@ SingletonImplementation(WSFMusicPlayerViewController);
     }
 
     [DOUAudioStreamer setHintWithAudioFile:[self.tracksArr objectAtIndex:nextIndex]];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if (context == kStatusKVOKey) {
+        [self performSelector:@selector(_updateStatus) onThread:[NSThread mainThread] withObject:nil waitUntilDone:NO];
+    }
+    else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
+
+- (void)_updateStatus
+{
+    switch ([_streamer status]) {
+    case DOUAudioStreamerPlaying:
+        NSLog(@"playing");
+//        [self startProgressTimer];
+        break;
+    case DOUAudioStreamerPaused:
+        NSLog(@"paused");
+        break;
+    case DOUAudioStreamerIdle:
+        NSLog(@"idle");
+        break;
+    case DOUAudioStreamerFinished:
+        NSLog(@"finished");
+        break;
+    case DOUAudioStreamerBuffering:
+        NSLog(@"buffering");
+        break;
+    case DOUAudioStreamerError:
+        NSLog(@"error");
+        break;
+    }
 }
 
 #pragma mark 图片
@@ -148,6 +219,7 @@ SingletonImplementation(WSFMusicPlayerViewController);
 
 - (IBAction)nextBtnClick
 {
+    [self stopProgressTimer];
     if (++self.currentTrackIndex >= [self.tracksArr count]) {
         self.currentTrackIndex = 0;
     }
@@ -157,11 +229,22 @@ SingletonImplementation(WSFMusicPlayerViewController);
 
 - (IBAction)previousBtnClick
 {
+    [self stopProgressTimer];
     if (--self.currentTrackIndex <= 0) {
         self.currentTrackIndex = [self.tracksArr count] - 1;
     }
 
     [self resetStreamer];
+}
+
+#pragma mark 其他
+// 时间转 str
+- (NSString *)stringWithTime:(NSTimeInterval)time
+{
+    NSInteger min = time / 60;
+    NSInteger second = (NSInteger)time % 60;
+
+    return [NSString stringWithFormat:@"%02ld:%02ld", min, second];
 }
 
 @end

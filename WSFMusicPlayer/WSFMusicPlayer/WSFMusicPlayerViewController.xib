@@ -10,11 +10,13 @@
                 <outlet property="albumImageView" destination="PtM-Sc-g5x" id="j1G-0k-n5W"/>
                 <outlet property="audioVisualizerView" destination="m7d-qU-3Rc" id="BpO-s4-4Fb"/>
                 <outlet property="backgroundImageView" destination="ind-ZC-h6R" id="gq7-Ea-82j"/>
+                <outlet property="currentTimeLabel" destination="VBB-l5-cjB" id="gNK-xj-CDe"/>
                 <outlet property="iconImageView" destination="PtM-Sc-g5x" id="6LJ-JH-4F8"/>
                 <outlet property="nextButton" destination="PaR-xK-KQ5" id="ipA-dG-Fei"/>
                 <outlet property="playButton" destination="fAp-HK-g9M" id="cFi-ho-DjW"/>
                 <outlet property="previousButton" destination="dvE-En-Hnm" id="tut-qC-LOF"/>
-                <outlet property="progressSlider" destination="vAI-hD-Y8S" id="LV1-0a-xrA"/>
+                <outlet property="progressSlider" destination="vAI-hD-Y8S" id="g3f-kz-6o6"/>
+                <outlet property="totalTimeLabel" destination="LLp-49-I1E" id="es9-vl-Unb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -51,9 +53,9 @@
                         <action selector="nextBtnClick" destination="-1" eventType="touchUpInside" id="UbJ-Gc-LyP"/>
                     </connections>
                 </button>
-                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vAI-hD-Y8S">
-                    <rect key="frame" x="6" y="319" width="363" height="31"/>
-                </slider>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="music_record" translatesAutoresizingMaskIntoConstraints="NO" id="PtM-Sc-g5x">
+                    <rect key="frame" x="102" y="85" width="171" height="159"/>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1P-5c-rdc">
                     <rect key="frame" x="26" y="61" width="46" height="30"/>
                     <state key="normal" title="Button"/>
@@ -61,9 +63,28 @@
                         <action selector="closeBtnClick:" destination="-1" eventType="touchUpInside" id="oZG-YQ-lNa"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="music_record" translatesAutoresizingMaskIntoConstraints="NO" id="PtM-Sc-g5x">
-                    <rect key="frame" x="102" y="85" width="171" height="159"/>
-                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="88:88" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBB-l5-cjB">
+                    <rect key="frame" x="36" y="301" width="93" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="88:88" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLp-49-I1E">
+                    <rect key="frame" x="205" y="301" width="111" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLt-hT-ZsI">
+                    <rect key="frame" x="59" y="442" width="46" height="30"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="timeBtnClick:" destination="-1" eventType="touchUpInside" id="95t-sd-tEY"/>
+                    </connections>
+                </button>
+                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vAI-hD-Y8S">
+                    <rect key="frame" x="46" y="268" width="266" height="31"/>
+                </slider>
             </subviews>
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
