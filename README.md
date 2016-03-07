@@ -1,8 +1,9 @@
 # WSFMusicPlayer
 最终效果图
 
-![](http://i4.tietuku.com/32d07af70a85793c.png)
+![](http://ww4.sinaimg.cn/large/0060lm7Tgw1f1oeqyui7wj30ku1120vm.jpg)
+
 
 当前效果图
 
-![](http://i4.tietuku.com/1cb1b5d5bafef791.png)
+![](http://ww4.sinaimg.cn/large/0060lm7Tgw1f1oes9ug1mj30ku112myj.jpg)
